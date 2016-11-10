@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- Configurações da conexão -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3304/db_loja</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
+
+        <!-- Pool de conexões JDBC -->
+        <property name="connection.pool_size">1</property>
+
+        <!-- SQL dialect Idioma que ele aceita-->
+        <property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+
+        <!-- Gerenciamento da sessão -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- Desabilita cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+
+        <!-- Exibe os comandos SQL -->
+        <property name="show_sql">true</property>
+
+        <!-- Cria as tabelas  usar update, se falhar usa create, mais tarde validate-->
+        <property name="hbm2ddl.auto">validade</property>
+
+       <mapping class="br.com.loja.domain.Fabricante" />
+       <mapping class="br.com.loja.domain.Funcionario"/>
+	   <mapping class="br.com.loja.domain.Produto"/>
+	   <mapping class="br.com.loja.domain.Venda"/>
+	   <mapping class="br.com.loja.domain.Item"/>
+	   
+    </session-factory>
+
+</hibernate-configuration>
